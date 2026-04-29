@@ -1,0 +1,37 @@
+# Pinned dependencies for the Qur'an Recitation Evaluation project.
+# Versions are exact (==) for reproducibility — see .claude/skills/02-tech-stack.md
+# for the canonical version table.
+
+# Deep learning
+torch==2.2.2
+torchaudio==2.2.2
+
+# HuggingFace stack (Whisper encoder)
+transformers==4.40.2
+
+# Audio I/O & DSP
+librosa==0.10.2.post1
+noisereduce==3.0.3
+
+# Numerical (numpy pinned <2 for torch 2.2.x ABI compat)
+numpy==1.26.4
+scipy==1.13.1
+
+# Classical ML & data wrangling
+scikit-learn==1.4.2
+pandas==2.2.2
+
+# Web UI (st.audio_input requires >=1.40)
+streamlit==1.40.0
+
+# Persistence & auth
+sqlalchemy==2.0.30
+bcrypt==4.1.3
+
+# Config
+pyyaml==6.0.1
+
+# Testing & style
+pytest==8.2.2
+black==24.4.2
+ruff==0.4.10
