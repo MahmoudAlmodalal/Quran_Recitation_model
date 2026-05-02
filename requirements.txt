@@ -12,6 +12,10 @@ transformers==4.40.2
 # Audio I/O & DSP
 librosa==0.10.2.post1
 noisereduce==3.0.3
+soundfile==0.12.1
+
+# Dataset ingestion (HuggingFace)
+datasets==2.19.2
 
 # Numerical (numpy pinned <2 for torch 2.2.x ABI compat)
 numpy==1.26.4
