@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Tooling caches
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Secrets & env
+.env
+.env.*
+!.env.example
+
+# Models
+models/
+*.pt
+*.pth
+
+# Data: ignore wholesale, negate tracked artifacts.
+# data/* (not data/) so git can re-include children below.
+data/*
+!data/labels/
+data/labels/*
+!data/labels/.gitkeep
+!data/labels/*.csv
+!data/labels/*.json
+
+# OS
+.DS_Store
+Thumbs.db

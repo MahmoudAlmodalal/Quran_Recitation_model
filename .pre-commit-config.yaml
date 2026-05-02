@@ -1,0 +1,15 @@
+# Pre-commit configuration: black (formatter) + ruff (linter w/ autofix).
+# Versions pinned to match requirements.txt (black==24.4.2, ruff==0.4.10).
+# Tool config (line-length, target-version, lint rules) lives in pyproject.toml.
+
+repos:
+  - repo: https://github.com/psf/black-pre-commit-mirror
+    rev: 24.4.2
+    hooks:
+      - id: black
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.10
+    hooks:
+      - id: ruff
+        args: [--fix]
