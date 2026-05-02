@@ -1,0 +1,57 @@
+# Default configuration for the Qur'an Recitation Evaluation system.
+#
+# Single source of truth for hyperparameters. Loaded by training, inference,
+# and the Streamlit app via `src.config.load_config`.
+# See .claude/skills/06-coding-standards.md and .claude/skills/05-model-design.md.
+#
+# Sections: audio, model, training, paths, app.
+# Paths are relative to the repository root and may be overridden via CLI.
+
+audio:
+  sample_rate: 16000        # Hz; Whisper expects 16 kHz mono.
+  max_length_s: 30.0        # Pad/truncate every clip to this many seconds.
+  n_mels: 80                # Log-mel bins (Whisper default).
+  trim_top_db: 30.0         # librosa.effects.trim threshold in dB.
+  target_lufs: -23.0        # Loudness-normalisation target.
+  noise_reduction: false    # Toggle noisereduce for crowdsourced clips.
+
+model:
+  encoder_id: tarteel-ai/whisper-base-ar-quran
+  embedding_dim: 512        # Whisper-base hidden size.
+  hidden_dim: 128           # Width of each head's first linear layer.
+  n_levels: 3               # Beginner / Intermediate / Advanced.
+  dropout: 0.3
+
+training:
+  batch_size: 16
+  learning_rate: 1.0e-3
+  weight_decay: 0.01
+  epochs: 30
+  warmup_ratio: 0.05
+  early_stopping_patience: 5
+  seed: 42
+  loss_lambdas:             # Weights for the four-task loss.
+    level: 1.0
+    pronunciation: 0.3
+    tajweed: 0.3
+    fluency: 0.3
+
+paths:
+  data_root: data
+  raw_dir: data/raw
+  processed_dir: data/processed
+  recordings_dir: data/recordings
+  labels_dir: data/labels
+  models_dir: models
+  checkpoint_path: models/recitation_v1.pt
+  db_path: data/app.db
+
+app:
+  consent_required: true    # NFR-7: no recording stored without consent.
+  max_upload_mb: 25
+  min_clip_seconds: 10
+  max_clip_seconds: 60
+  level_labels:
+    - Beginner
+    - Intermediate
+    - Advanced
