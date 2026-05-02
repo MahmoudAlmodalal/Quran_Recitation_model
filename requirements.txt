@@ -17,6 +17,9 @@ soundfile==0.12.1
 # Dataset ingestion (HuggingFace)
 datasets==2.19.2
 
+# Dataset ingestion (Kaggle) — used by scripts/download_ardad.py
+kaggle==1.6.17
+
 # Numerical (numpy pinned <2 for torch 2.2.x ABI compat)
 numpy==1.26.4
 scipy==1.13.1
